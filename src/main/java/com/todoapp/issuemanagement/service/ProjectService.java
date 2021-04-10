@@ -4,16 +4,19 @@ import com.todoapp.issuemanagement.entity.IssueHistory;
 import com.todoapp.issuemanagement.entity.Project;
 import com.todoapp.issuemanagement.entity.User;
 import com.todoapp.issuemanagement.entity.issue;
+import com.todoapp.issuemanagement.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface ProjectService {
-    Project save(Project project);
+    ProjectDto save(ProjectDto project);
     ProjectDto getById(Long id);
-    List<Project> getByProjectCode(String projectCode);
-    List<Project> getByProjectCodeContains(String projectCode);
-    Page<Project> getAllPageable(Pageable pageable);
-    Boolean delete(Project project);
+    ProjectDto getByProjectCode(String projectCode);
+    List<ProjectDto> getByProjectCodeContains(String projectCode);
+    TPage<ProjectDto> getAllPageable(Pageable pageable);
+    Boolean delete(ProjectDto project);
+
+    ProjectDto update(Long id, ProjectDto project);
 }
